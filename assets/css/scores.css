@@ -1,0 +1,13 @@
+h1 {
+    text-align: center;
+}
+
+#enter {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
