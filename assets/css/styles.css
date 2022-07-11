@@ -1,8 +1,56 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 header {
     display: flex;
     justify-content: space-between;
 }
 
-h1 {
+#container {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 150px;
+}
+
+p {
+    font-size: ;
+}
+
+button {
+    background-color: purple;
+    color: white;
+    cursor: pointer;
+    border-radius: 15px;
+    margin: 15px;
+    padding: 5px 15px;
+}
+
+button:hover {
+    background-color: black;
+}
+
+#timer {
+    right: 10px;
+    top: 10px;
+}
+
+#questions {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+li {
+    background-color: purple;
+    color: white;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#createDiv {
+    font-style: ;
+    color: ;
+    margin-top: ;
+    border-top: ;
 }

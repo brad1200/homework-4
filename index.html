@@ -9,20 +9,32 @@
     <title>Code Quiz</title>
 </head>
 
+<header>
+    <!-- links to highscore page -->
+    <a href="./scores.html" target="_blank">View Highscores</a>
+    <div id="timer">Time:</div>
+</header>
+
 <body>
+    <!-- where questions will appear when java starts -->
+    <div id="container">
+        <div id="timer"></div>
+        <div id="questions">
+            <h1>This is the Coding Quiz Challenge!!</h1>
+            <p>Answer the questions to the best of your abilities within the time limit.
+                If the question is answered incorrectly you will be penalized by time taken off of your score!
+            </p>
+            <ol id="choices"></ol>
 
-    <header>
-        <a href="./scores.html" target="_blank">View High Scores</a>
-        <div id="timer">Time: 0</div>
-    </header>
-
-    <h1>Coding Quiz</h1>
-    <div id="startBtn"></div>
+            <!-- quiz starts here, java comes in -->
+            <button id="start">Start Quiz</button>
+        </div>
+    </div>
 
 
-    <div id="question"></div>
+
     <script src="./assets/js/questions.js"></script>
     <script src="./assets/js/logic.js"></script>
-</body>
+</body> -->
 
 </html>
