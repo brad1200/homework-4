@@ -1,4 +1,78 @@
-// Last page: All Done!
+var score = 0;
+var questionIndex = 0;
+var timer = document.querySelector('#timer');
+var start = document.querySelector('#start');
+var questionsSection = document.querySelector('#questions');
+var container = document.querySelector('#container');
+
+// timer setup
+var secondsLeft = 80;
+var holdInterval = 0;
+var penalty = 10;
+
+var olCreate = document.createElement('ol');
+
+// starts timer when you click
+start.addEventListener('click', function () {
+    if (holdInterval === 0) {
+        holdInterval = setInterval(function () {
+            secondsLeft--;
+            timer.textContent = 'Time: ' + secondsLeft;
+            if (secondsLeft <= 0) {
+                clearInterval(holdInterval);
+                allDone();
+            }
+        }, 1000);
+    }
+    render(questionIndex);
+});
+
+// questions appear on page
+function render(questionIndex) {
+    questionsSection.innerHTML = '';
+    olCreate.innerHTML = '';
+
+    for (var i = 0; i < questions.length; i++) {
+        var userQuestion = questions[questionIndex].question;
+        var userChoices = questions[questionIndex].choices;
+        questionsSection.textContent = userQuestion;
+    }
+    userChoices.forEach(function (newItem) {
+        var listItem = document.createElement('li');
+        listItem.textContent = newItem;
+        questionsSection.appendChild(olCreate);
+        olCreate.appendChild(listItem);
+        listItem.addEventListener('click', (compare));
+    })
+}
+
+// adding feedback after selecting answer, penalty added 
+function compare(event) {
+    var element = event.target;
+
+    if (element.matches('li')) {
+        var createDiv = document.createElement('div');
+        createDiv.setAttribute('id', 'createDiv');
+        if (element.textContent == questions[questionIndex].answer) {
+            score++;
+            createDiv.textContent = 'Corrrect!';
+        } else {
+            secondsLeft = secondsLeft - penalty;
+            createDiv.textContent = 'Wrong!';
+        }
+    }
+
+    questionIndex++;
+
+    if (questionIndex >= questions.length) {
+        allDone();
+    } else {
+        render(questionIndex);
+    }
+    questionsSection.appendChild(createDiv);
+}
+
+// All Done page
 function allDone() {
     questionsSection.innerHTML = "";
     timer.innerHTML = "";
